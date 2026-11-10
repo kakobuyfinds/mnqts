@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>LoveGoBuy spreadsheet | Find, sammenlign og tjek varer</title>
+  <meta name="description" content="Brug et LoveGoBuy spreadsheet til at sammenligne varelinks, mål og QC-fotos. Se 10 kategorier og lær, hvordan du sammenligner fragt til Danmark.">
+  <meta name="theme-color" content="#381d23">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="da_DK">
+  <meta property="og:title" content="LoveGoBuy spreadsheet | Find, sammenlign og tjek varer">
+  <meta property="og:description" content="En dansk købsguide med 10 kategorier, en enkel skabelon og konkrete tjek af mål, QC-fotos og fragt.">
+  <meta property="og:image" content="https://assets.christiandior.com/is/image/diorprod/543C903E3014C900_E01-3?%24default_GHC%24=&amp;bfc=on&amp;crop=427%2C713%2C996%2C698&amp;hei=480&amp;qlt=80&amp;wid=480">
+  <meta property="og:image:alt" content="Sort Dior Oblique-kasket set forfra">
+  <link rel="preconnect" href="https://assets.christiandior.com">
+  <style>
+    :root{color-scheme:light;--paper:#fbf4e8;--ink:#291e20;--muted:#5f4a45;--wine:#381d23;--accent:#8a3829;--line:#dbc7b5;--gold:#ffdb9a}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.6 system-ui,sans-serif}
+    .wrap{width:min(72rem,calc(100% - 2rem));margin-inline:auto}
+    a{color:var(--accent);text-underline-offset:.23em}
+    :focus-visible{outline:3px solid #ad5522;outline-offset:4px}
+    header{background:var(--wine);color:#fff1da}
+    .mast{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.3rem 1rem;min-height:3.5rem;padding:.55rem 0}
+    .mast a{color:#fff1da;font-size:1.1rem;font-weight:850;text-decoration:none}
+    .label{margin:0;font-size:.75rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+    h1,h2,h3{margin:0 0 .55rem;line-height:1.12}
+    h1,h2{font-family:Georgia,serif;font-weight:700;letter-spacing:-.04em}
+    h1{font-size:clamp(2.4rem,6vw,5.35rem);margin:.45rem 0 .7rem;overflow-wrap:anywhere}
+    h2{font-size:clamp(1.65rem,3.8vw,2.65rem)}
+    h3{font-size:1.12rem}
+    p,figure{margin:0}
+    p+p{margin-top:.65rem}
+    .intro p:last-child,.section-intro,figcaption,footer{color:var(--muted)}
+    .hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);grid-template-areas:"intro cover" "catalog cover";gap:1.1rem clamp(1.2rem,4vw,3.5rem);padding:clamp(1.2rem,4vw,3rem) 0}
+    .intro{grid-area:intro;align-self:end}
+    .intro .label,.chapter .label{color:var(--accent)}
+    .catalog{grid-area:catalog;align-self:start;border-top:2px solid var(--wine);padding-top:.75rem}
+    .catalog h2{font-size:1.4rem}
+    .categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:.8rem;list-style:none;margin:0;padding:0}
+    .categories a{display:flex;align-items:center;min-height:2.75rem;padding:.25rem .1rem;border-bottom:1px solid var(--line);font-size:.91rem;font-weight:750;text-decoration:none;overflow-wrap:anywhere}
+    .categories a:hover{background:#f7e3c8;text-decoration:underline}
+    img{display:block;width:100%;height:auto}
+    .cover{grid-area:cover;align-self:center;background:var(--wine);padding:.6rem}
+    .cover img{aspect-ratio:1;object-fit:contain;background:white}
+    .cover figcaption{color:#fff1da;padding:.55rem .35rem .25rem}
+    figcaption{font-size:.87rem;line-height:1.45}
+    .band{background:var(--wine);color:#fff1da;padding:clamp(1.25rem,4vw,2.8rem) 0}
+    .band .label,.band caption{color:var(--gold)}
+    .band p{max-width:70ch}
+    table{width:100%;border-collapse:collapse;margin-top:.7rem;text-align:left;table-layout:fixed}
+    caption{text-align:left;font-size:.86rem;padding:.25rem 0}
+    th,td{border-bottom:1px solid #815d61;padding:.55rem .35rem;vertical-align:top;overflow-wrap:anywhere}
+    th:first-child{width:33%}
+    .chapter{padding:clamp(1.45rem,4vw,3rem) 0;border-bottom:1px solid var(--line)}
+    .chapter .label{margin-bottom:.35rem}
+    .section-intro{max-width:70ch;margin-bottom:1rem}
+    .articles{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem 2rem}
+    .articles article{border-top:3px solid var(--accent);padding-top:.8rem}
+    .gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem}
+    .gallery figure{background:#fffaf2;border:1px solid var(--line)}
+    .gallery img{aspect-ratio:1;object-fit:contain;background:white}
+    .gallery figcaption{padding:.55rem .6rem}
+    .faq{max-width:53rem}
+    details{border-top:1px solid var(--line);padding:.25rem 0}
+    details:last-child{border-bottom:1px solid var(--line)}
+    summary{cursor:pointer;font-weight:750;padding:.55rem .2rem;min-height:2.75rem}
+    details p{padding:0 .25rem .65rem 1.2rem}
+    footer{padding:1.25rem 0 1.8rem;font-size:.88rem}
+    footer a{font-weight:800}
+    @media(max-width:45rem){.hero{grid-template-columns:1fr;grid-template-areas:"intro" "catalog" "cover"}.cover{width:min(100%,24rem)}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:34rem){.articles{grid-template-columns:1fr}}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "da",
+    "name": "LoveGoBuy spreadsheet | Find, sammenlign og tjek varer",
+    "description": "Brug et LoveGoBuy spreadsheet til at sammenligne varelinks, mål og QC-fotos. Se 10 kategorier og lær, hvordan du sammenligner fragt til Danmark.",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Hvad er et LoveGoBuy spreadsheet?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Det er en oversigt over varelinks, hvor du kan gemme model, variant, mål og noter om kvalitetskontrol. Kategorierne på denne side fører til CAFANS."}
+      },
+      {
+        "@type": "Question",
+        "name": "Hvad gør jeg, hvis et varelink er dødt?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Søg på modelnavnet eller modelkoden, og sammenlign variant og sælger med din oprindelige note. Gem først et nyt link, når du har fundet den rigtige vare."}
+      },
+      {
+        "@type": "Question",
+        "name": "Hvordan vælger jeg størrelse uden at prøve varen?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Mål et par sko eller et stykke tøj, der passer dig. Sammenlign centimeter og målemetode med sælgerens størrelsestabel for den konkrete variant."}
+      },
+      {
+        "@type": "Question",
+        "name": "Hvad kan jeg se på et QC-foto?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Et QC-foto kan vise synlige detaljer som syninger, farve, etiketter og skader. Brug billeder fra flere vinkler, og bed om et foto med målebånd, hvis pasformen er afgørende."}
+      },
+      {
+        "@type": "Question",
+        "name": "Hvordan sammenligner jeg fragt til Danmark?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Indtast samme destination, pakkevægt og pakkemål i hvert fragttilbud. Se efter, hvilken vægt tilbuddet beregnes ud fra, og sammenlign den samlede pris og vilkårene."}
+      }
+    ]
+  }
+  </script>
+  <!-- Søgeanalyse: 10 relevante websteder gennemgået. Googles placeringer kunne ikke verificeres. -->
+<link rel="canonical" href="https://kakobuyfinds.github.io/mnqts/">
+</head>
+<body>
+  <header>
+    <div class="wrap mast">
+      <a href="https://www.cafans.com">www.cafans.com</a>
+      <p class="label">Dansk købsguide</p>
+    </div>
+  </header>
+  <main>
+    <div class="wrap hero">
+      <div class="intro">
+        <p class="label">Fra varelink til kortliste</p>
+        <h1>LoveGoBuy spreadsheet</h1>
+        <p>Et LoveGoBuy spreadsheet er en oversigt, hvor du samler varelinks, størrelser og noter om de varer, du overvejer. Find en kategori hos CAFANS, og brug guiden til at sammenligne modeller, før du vælger.</p>
+      </div>
+      <nav class="catalog" aria-labelledby="kategorier">
+        <h2 id="kategorier">Vælg blandt 10 kategorier</h2>
+        <ul class="categories">
+          <li><a href="https://cafans.com/category-911-Shoes.html">Sko</a></li>
+          <li><a href="https://cafans.com/category-912-Hoodies%2FSweaters.html">Hættetrøjer og strik</a></li>
+          <li><a href="https://cafans.com/category-913-T-Shirts.html">T-shirts</a></li>
+          <li><a href="https://cafans.com/category-914-Jackets.html">Jakker</a></li>
+          <li><a href="https://cafans.com/category-915-Pants%2FShorts.html">Bukser og shorts</a></li>
+          <li><a href="https://cafans.com/category-916-Headwear.html">Hovedbeklædning</a></li>
+          <li><a href="https://cafans.com/category-917-Sets.html">Sæt</a></li>
+          <li><a href="https://cafans.com/category-918-underwear%2Funderpants.html">Undertøj</a></li>
+          <li><a href="https://cafans.com/category-919-Jersey.html">Sportstrøjer</a></li>
+          <li><a href="https://cafans.com/category-920-Accessories.html">Tilbehør</a></li>
+        </ul>
+      </nav>
+      <figure class="cover">
+        <img src="https://assets.christiandior.com/is/image/diorprod/543C903E3014C900_E01-3?%24default_GHC%24=&amp;bfc=on&amp;crop=427%2C713%2C996%2C698&amp;hei=480&amp;qlt=80&amp;wid=480" width="480" height="480" alt="Sort Dior Oblique-kasket med tonalt mønster, set forfra" loading="eager" fetchpriority="high">
+        <figcaption>Dior Oblique · Se efter, om mønstret flugter ved kaskettens skygge.</figcaption>
+      </figure>
+    </div>
+
+    <section class="band" aria-labelledby="varelinks">
+      <div class="wrap">
+        <p class="label">Skabelon</p>
+        <h2 id="varelinks">Sådan gemmer du LoveGoBuy-varelinks</h2>
+        <p>Brug én række pr. variant. Har du to farver fra samme sælger, så giv dem hver sin række. Så kan du se, hvilken farve størrelsestabellen og billederne hører til.</p>
+        <table>
+          <caption>Felter til din kortliste</caption>
+          <thead><tr><th scope="col">Felt</th><th scope="col">Det skriver du</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Vare og kilde</th><td>Modelnavn, modelkode, sælger, originalt produktlink og dato for sidste tjek.</td></tr>
+            <tr><th scope="row">Variant og mål</th><td>Farve, valgt størrelse, mål i centimeter og en note om pasform.</td></tr>
+            <tr><th scope="row">Billeder og status</th><td>Hvilke QC-fotos du har set, hvilke detaljer du mangler, og hvad du skal gøre som det næste.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="wrap chapter" aria-labelledby="artikler">
+      <p class="label">To korte artikler</p>
+      <h2 id="artikler">Fra pasform til pakke</h2>
+      <div class="articles">
+        <article>
+          <h3>LoveGoBuy-størrelsesguide og QC-fotos</h3>
+          <p>Ved sko skal du se, om tabellen bruger fodlængde eller indersålslængde. De to mål kan ikke sammenlignes direkte. Ved en jakke kan du lægge en velsiddende jakke fladt og måle brystbredde, skulderbredde og ærmelængde på samme måde som i sælgerens tabel.</p>
+          <p>QC står for kvalitetskontrol. Bed om et foto af størrelsesmærket, et nærbillede af syningerne og en oversigt af hele varen. Hvis målet ligger på grænsen, kan et foto med målebånd vise præcis, hvor målet er taget.</p>
+        </article>
+        <article>
+          <h3>LoveGoBuy-fragt til Danmark</h3>
+          <p>Brug samme destination, vægt og mål, når du sammenligner fragttilbud. En stor skotøjsæske kan fylde meget, selv om pakken vejer lidt. Spørg, om tilbuddet bruger faktisk vægt eller volumenvægt, og hvad den valgte fragtlinje omfatter.</p>
+          <p>Hold varepris og fragt adskilt i din oversigt. Hvis du omregner til danske kroner, så skriv kursdatoen ned. Se efter særskilte gebyrer, og tjek vilkår og returfrist, inden du godkender afsendelse.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap chapter" aria-labelledby="billeder">
+      <p class="label">Visuelle eksempler</p>
+      <h2 id="billeder">Fire detaljer, du kan bede om at se</h2>
+      <p class="section-intro">Billederne illustrerer, hvad du kan se efter i sælgerens egne billeder. Kategorioversigten ligger hos CAFANS.</p>
+      <div class="gallery">
+        <figure>
+          <img src="https://snkrs.lt/cdn/shop/products/nike-air-force-1-07-cw2288-111-1.jpg?v=1620720645&amp;width=640" width="640" height="640" alt="Hvid Nike Air Force 1 ’07 med hvid sål, set fra siden" loading="lazy" decoding="async">
+          <figcaption><strong>Nike</strong> · Bed om et sidebillede af samlingen mellem overdel og sål.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://en.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monogram-jacquard-denim-jacket--HRA79WUZD650_PM2_Front%20view.jpg?hei=480&amp;wid=480&amp;fmt=jpg&amp;qlt=75" width="480" height="480" alt="Mørk Louis Vuitton-denimjakke med monogram og knaplukning, set forfra" loading="lazy" decoding="async">
+          <figcaption><strong>Louis Vuitton</strong> · Se, hvordan mønstret mødes ved knaplukningen.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://img.mytheresa.com/512/512/66/jpeg/catalog/product/db/P01192745.jpg" width="453" height="512" alt="Beige Gucci-bøllehat med brunt GG-mønster" loading="lazy" decoding="async">
+          <figcaption><strong>Gucci</strong> · Bed om et mål af hattens indvendige omkreds.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://assets.hermes.com/is/image/hermesproduct/armreif-clic-hh--703203FB2M-front-wm-1-0-0-1000-1000_g.jpg" width="1000" height="1000" alt="Orange Hermès-armring med sølvfarvet H-lås" loading="lazy" decoding="async">
+          <figcaption><strong>Hermès</strong> · Bed om nærbilleder af emaljekanten og låsen.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="wrap chapter" aria-labelledby="sporgsmal">
+      <div class="faq">
+        <h2 id="sporgsmal">Spørgsmål om LoveGoBuy spreadsheet</h2>
+        <details open>
+          <summary>Hvad er et LoveGoBuy spreadsheet?</summary>
+          <p>Det er en oversigt over varelinks, hvor du kan gemme model, variant, mål og noter om kvalitetskontrol. Kategorierne på denne side fører til CAFANS.</p>
+        </details>
+        <details>
+          <summary>Hvad gør jeg, hvis et varelink er dødt?</summary>
+          <p>Søg på modelnavnet eller modelkoden, og sammenlign variant og sælger med din oprindelige note. Gem først et nyt link, når du har fundet den rigtige vare.</p>
+        </details>
+        <details>
+          <summary>Hvordan vælger jeg størrelse uden at prøve varen?</summary>
+          <p>Mål et par sko eller et stykke tøj, der passer dig. Sammenlign centimeter og målemetode med sælgerens størrelsestabel for den konkrete variant.</p>
+        </details>
+        <details>
+          <summary>Hvad kan jeg se på et QC-foto?</summary>
+          <p>Et QC-foto kan vise synlige detaljer som syninger, farve, etiketter og skader. Brug billeder fra flere vinkler, og bed om et foto med målebånd, hvis pasformen er afgørende.</p>
+        </details>
+        <details>
+          <summary>Hvordan sammenligner jeg fragt til Danmark?</summary>
+          <p>Indtast samme destination, pakkevægt og pakkemål i hvert fragttilbud. Se efter, hvilken vægt tilbuddet beregnes ud fra, og sammenlign den samlede pris og vilkårene.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap">
+    <p>Uafhængig købsguide. Produktbillederne bruges som visuelle eksempler. <a href="https://www.cafans.com">Se forsiden hos CAFANS</a>.</p>
+  </footer>
+</body>
+</html>
